@@ -7,11 +7,24 @@
 //#endif /* frame_sender_hpp */
 
 typedef struct {
-    char data[1024];
+    
+    uint8_t data[8192];
+    int dataLength;
+    
 }Packet;
 
 typedef struct {
     int seq;
     int ack;
+    uint32_t crc;
     Packet packet;
 }Frame;
+
+typedef struct {
+    int ack;
+}Ack_Frame;
+
+typedef struct {
+    int payloadSize;
+    int fileSize;
+}Init_Frame;
