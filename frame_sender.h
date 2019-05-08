@@ -15,7 +15,6 @@ typedef struct {
 
 typedef struct {
     int seq;
-    int ack;
     uint32_t crc;
     Packet packet;
 }Frame;
@@ -26,5 +25,6 @@ typedef struct {
 
 typedef struct {
     int payloadSize;
-    int fileSize;
+    int maxSeqNumber;
+    int windowSizeOfServer;
 }Init_Frame;
